@@ -7,13 +7,25 @@ import UIKit
 
 // Your function here
 
+let greeting = {
+    print("Welcome to Closures.")
+}
+greeting()
+
+
+func applyKTimes(Int k: Int ){
+    for _ in k {
+        greeting()
+    }
+}
+
 // Uncomment out the following lines to check your solution
 
-//var myVal = 0
-//applyKTimes(5) {
-//    myVal += 1
-//}
-//assert(myVal == 5, "Expected myVal to be five, but was \(myVal)")
+var myVal = 0
+applyKTimes(5) {
+    myVal += 1
+}
+assert(myVal == 5, "Expected myVal to be five, but was \(myVal)")
 
 
 // Question Two
