@@ -7,25 +7,27 @@ import UIKit
 
 // Your function here
 
-//let greeting = {
-//    print("Welcome to Closures.")
-//}
-//greeting()
-//
-//
-//func applyKTimes(Int k: Int ){
-//    for _ in k {
-//        greeting()    }
-//}
+let greeting = {
+    print("Welcome to Closures.")
+}
+greeting()
+
+
+func applyKTimes(k: Int){
+    for _ in 0...k {
+       
+    }
+}
+
 
 // Uncomment out the following lines to check your solution
 
 //var myVal = 0
-//applyKTimes(5) {
+////applyKTimes(k: 5){
 //    myVal += 1
 //}
 //assert(myVal == 5, "Expected myVal to be five, but was \(myVal)")
-//
+
 
 // Question Two
 
@@ -47,7 +49,7 @@ func multiples(of n: Int, array:[Int]) -> [Int]  {
 
 let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
 let expectedOutputTwo = [3, 6, 9, 3, 12]
-let outputTwo = multiples (of: 3, in: numbers)
+let outputTwo = multiples (of: 3, array: numbers)
 assert(outputTwo == expectedOutputTwo, "Expected output to be \(expectedOutputTwo), but found \(outputTwo)")
 
 
@@ -56,13 +58,25 @@ assert(outputTwo == expectedOutputTwo, "Expected output to be \(expectedOutputTw
 // Write a function called largestValue(in:) that finds the largest Int in an array of Ints. Use reduce to solve this exercise.
 
 // Your function here
+func largestValue(in arrayNum: [Int]) -> (Int) {
+ var largestInt = 0
+    
+    largestInt = arrayNum.reduce(Int.min, max) //I need to go over this
+//    for num in arrayNum {
+//        if num > largestInt {
+//            largestInt = num
+//        }
+//    }
+        return largestInt
+}
+
 
 // Uncomment out the following lines to check your solution
 
-//let moreNumbers = [4, 7, 1, 9, 6, 5, 6, 9]
-//let expectedOutputThree = 9
-//let outputThree = largestValue(in: moreNumbers)
-//assert(outputThree == expectedOutputThree, "Expected output to be \(expectedOutputThree), but found \(outputThree)")
+let moreNumbers = [4, 7, 1, 9, 6, 5, 6, 9]
+let expectedOutputThree = 9
+let outputThree = largestValue(in: moreNumbers)
+assert(outputThree == expectedOutputThree, "Expected output to be \(expectedOutputThree), but found \(outputThree)")
 
 
 // Question Four
@@ -110,12 +124,19 @@ assert(outputFour.elementsEqual(expectedOutputFour, by: { $0 == $1 }), "Expected
 // Write a function called sumOfSquaresOfOddNumbers(in:) that returns the sum of the squares of all the odd numbers from an array of Ints.  Use filter, map and reduce in your function.
 
 // Your function here
+func sumOfSquaresOfOddNumbers(in arrayInt: [Int] ) -> Int {
+    let filtedArray = arrayInt.filter { $0 % 2 == 1 }
+    let squaredArray = filtedArray.map { $0 * $0 }
+    let reducedArray = squaredArray.reduce(0,+)
+    return reducedArray
+}
+
 
 // Uncomment out the following lines to check your solution
 
-//let evenMoreNumbers = [1, 2, 3, 4, 5, 6]
-//let expectedOutputFive = 35 // Explanation: 1 + 9 + 25 -> 35
-//let outputFive = sumOfSquaresOfOddNumbers(in: evenMoreNumbers)
-//assert(outputFive == expectedOutputFive, "Expected output to be \(expectedOutputFive), but found \(outputFive)")
+let evenMoreNumbers = [1, 2, 3, 4, 5, 6]
+let expectedOutputFive = 35 // Explanation: 1 + 9 + 25 -> 35
+let outputFive = sumOfSquaresOfOddNumbers(in: evenMoreNumbers)
+assert(outputFive == expectedOutputFive, "Expected output to be \(expectedOutputFive), but found \(outputFive)")
 
 
